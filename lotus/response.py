@@ -1,4 +1,4 @@
+from curl_cffi.requests import Response
 
-
-class Response:
+class Response(Response):
     pass
