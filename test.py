@@ -19,6 +19,10 @@ class Api(Spider):
         time.sleep(1)
         print(self.params())
     
+    def prepare_request(self) -> dict | None:
+        print("hello world")
+        return None
+    
 
 if __name__ == '__main__':
     api = Api("get", "https://www.baidu.com")

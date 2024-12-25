@@ -1,24 +1,22 @@
 
-from typing import overload, Union
+from typing import Literal, Union
+from typing_extensions import Unpack
 from lotus.request import Request
 from lotus.response import Response
+from curl_cffi.const import CurlHttpVersion
+from curl_cffi.requests.session import BaseSessionParams
 
 
 class Spider():
 
-    def __init__(self, method: str, url: str) -> None:
+    def __init__(self, method: Literal["post", "get"], url: str) -> None:
         self._url = url
         self._method = method
-        self._params = {}
-        self._headers = {}
-        self._proxies = {}
-        self._data = {}
-        self._json = {}
-        self.config = {
-            "retry_times": 3,
-            "timeout": 10,
-            "verify": False
-        }
+        self._config = {}
+
+    def set_config(self, **ksargs: Unpack[BaseSessionParams]):
+        for key, value in ksargs.items():
+            self._config.update({key: value})        
 
     def headers(self) -> dict | None:
         return None
@@ -34,14 +32,17 @@ class Spider():
 
     def json(self) -> dict | None:
         return None
+    
+    def prepare_request(self) -> dict | None:
+        return None
 
     def make_request(self) -> Request:
         params = self.params()
         headers = self.headers()
-        proxies = self.proxies()
         json = self.json()
         data = self.data()
-        return Request(self._url, self._method, params, headers, json, data, proxies, self.config['timeout'], self.config['retry_times'], self.config['verify'])
+        proxies = self.proxies()
+        return Request(self._url, self._method, params, headers, json, data, proxies)
 
     def download(self) -> dict:
         result = {}
@@ -52,7 +53,7 @@ class Spider():
         result['data'] = self.parse(response)
         return result
 
-    def parse(self, response: Response) -> any:
+    def parse(self, response: Response) -> dict:
         pass
 
     def has_next(self, response: Response) -> bool:
