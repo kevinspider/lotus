@@ -1,4 +1,3 @@
-from typing import Optional
 from curl_cffi.requests import Session, AsyncSession
 
 SESSION_ATTR = ["tread", "curl_options", "debug"]
@@ -37,6 +36,7 @@ REQUEST_ATTR = [
     "multipart"
 ]
 
+
 class Request:
     def __init__(self, **kwargs) -> None:
         self._session_config = {}
@@ -51,7 +51,6 @@ class Request:
     def download(self):
         try:
             with Session(**self._session_config) as s:
-                print(self._request_config.get("headers", {}).get("Content-Type", ""))
                 return s.request(**self._request_config)
         except Exception as e:
             print(f"download error {e}")

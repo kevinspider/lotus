@@ -45,13 +45,13 @@ class Config(TypedDict, total=False):
 
 class AttrMixin:
         
-    def __init__(self, config: Optional[Config] = None):
+    def __init__(self):
         self._params = None
         self._data = None
         self._headers = None
         self._json = None
         self._cookies = None
-        self._config = None
+        self._config = {}
 
         # 初始化懒加载的属性
         self._params: Optional[dict] = self.params()
@@ -60,8 +60,6 @@ class AttrMixin:
         self._json: Optional[dict] = self.json()
         self._cookies: Optional[dict] = self.cookies()
         self._config: Config = self.config()
-        if config is not None:
-            self.update_config(**config)
 
     # config 属性
 

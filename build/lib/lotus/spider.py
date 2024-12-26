@@ -1,13 +1,11 @@
-import json
+from typing import Callable, Dict, Literal, Optional, Tuple, TypedDict, Union
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import *
 from curl_cffi.requests.session import *
+from typing_extensions import Unpack
 from lotus.request import Request
-from lotus.attr import AttrMixin, Config
+from lotus.attr import AttrMixin
 from lotus.response import Response
-from typing import Optional
-
-from lotus.utils import dict_to_json
 
 
 """
@@ -51,17 +49,12 @@ requests 参数
 
 
 class Spider(AttrMixin):
-
-    def __init__(self, method: HttpMethod, url: str, config: Optional[Config] = None) -> None:
-        self._config = self.config()
+    def __init__(self, method: HttpMethod, url: str) -> None:
+        super().__init__()
         self._config['url'] = url
         self._config['method'] = method
-        if config is not None:
-            self.update_config(**config)
-        super().__init__(self._config)
 
     # config 默认值
-
     def config(self) -> dict:
         return {
             "timeout": 30,
@@ -74,7 +67,7 @@ class Spider(AttrMixin):
             "impersonate": DEFAULT_CHROME,
             "default_encoding": "utf-8",
             "quote":  "",
-            "http_version": CurlHttpVersion.V1_1,
+            "http_version": CurlHttpVersion.V2_0,
             "debug":  False,
             "stream": False,
             "max_recv_speed": 0,
@@ -83,13 +76,14 @@ class Spider(AttrMixin):
         }
 
     # 特定参数的默认实现，可以在子类中重写
+
     def headers(self) -> dict | None:
         return None
 
     def params(self) -> dict | None:
         return None
 
-    def data(self) -> dict | str | bytes | None:
+    def data(self) -> dict | None:
         return None
 
     def json(self) -> dict | None:
@@ -98,6 +92,14 @@ class Spider(AttrMixin):
     def cookies(self) -> dict | None:
         return None
 
+    # 子类重写
+    def pre_request(self) -> None:
+        return None
+
+    # 子类或者Minxin 重写
+    def save_data(self, data: dict) -> None:
+        pass
+
     def make_request(self) -> Request:
         """子类介入时机, 通过 set 或者 update 的方式改变 self.xxx 的值"""
         self.pre_request()
@@ -105,38 +107,24 @@ class Spider(AttrMixin):
         """构建请求体"""
         self._config['params'] = self.get_params()
         self._config['headers'] = self.get_headers()
-        # 如果此处传递 json, 直接截断
-        json_data = self.get_json()
-        # 包含了 json 就肯定不能包含 data, 互斥
-        if json_data is not None:
-            self._config['data'] = dict_to_json(json_data).encode("utf-8")
-            assert self.get_data() is None
-        else:
-            self._config['data'] = self.get_data()
-        self._config['cookies'] = self.get_cookies()
+        self._config['json'] = self.get_json()
+        self._config['data'] = self.get_data()
         return Request(**self._config)
-
-    # 子类按需要重写, 提供了 request 的 hook
-    def pre_request(self) -> None:
-        return None
 
     def download(self) -> dict:
         retry_times = self._config.get("retry_times", 3)
         while retry_times:
             try:
                 result = {}
-                parent_response = self.make_request().download()
-                response = Response.from_parent(parent_response)
-                result['is_next'] = self.is_next(response)
-                result['is_ignore'] = self.is_ignore(response)
-                result['is_retry'] = self.is_retry(response)
+                response = self.make_request().download()
+                result['has_next'] = self.has_next(response)
+                result['ignore'] = self.ignore(response)
+                result['retry'] = self.retry(response)
                 result['data'] = self.parse(response)
-                result['is_update'] = self.is_update(response)
-                # self.save_data(result)
+                self.save_data(result)
                 return result
             except Exception as e:
                 retry_times -= 1
-                print(f"download error {e}")
 
     async def async_download(self) -> dict:
         retry_times = self._config.get("retry_times", 3)
@@ -148,28 +136,19 @@ class Spider(AttrMixin):
                 result['ignore'] = self.ignore(response)
                 result['retry'] = self.retry(response)
                 result['data'] = self.parse(response)
-                result['is_update'] = self.is_update(response)
-                # self.save_data(result)
+                self.save_data(result)
                 return result
             except Exception as e:
                 retry_times -= 1
 
-    # 子类重写 解析页面数据
-    def parse(self, response: Response) -> dict | str | None:
-        return None
+    def parse(self, response: Response) -> dict | str:
+        pass
 
-    # 子类重写, 是否需要翻页
-    def is_next(self, response: Response) -> bool | None:
-        return None
+    def has_next(self, response: Response) -> bool:
+        return False
 
-    # 子类重写, 是否需要再次请求
-    def is_retry(self, response: Response) -> bool | None:
-        return None
+    def retry(self, response: Response) -> bool:
+        return False
 
-    # 子类重写, 是否需要忽略该请求
-    def is_ignore(self, response: Response) -> bool | None:
-        return None
-
-    # 子类重写, 是否需要根据本次响应来更新下一次的参数
-    def is_update(self, response: Response) -> dict | str | None:
-        return None
+    def ignore(self, response: Response) -> bool:
+        return False

@@ -1,5 +1,13 @@
 README.md
 setup.py
+lotus/__init__.py
+lotus/attr.py
+lotus/private.py
+lotus/request.py
+lotus/response.py
+lotus/spider.py
+lotus/thread_manager.py
+lotus/utils.py
 lotus.egg-info/PKG-INFO
 lotus.egg-info/SOURCES.txt
 lotus.egg-info/dependency_links.txt
