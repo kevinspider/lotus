@@ -1,0 +1,8 @@
+README.md
+setup.py
+lotus.egg-info/PKG-INFO
+lotus.egg-info/SOURCES.txt
+lotus.egg-info/dependency_links.txt
+lotus.egg-info/not-zip-safe
+lotus.egg-info/requires.txt
+lotus.egg-info/top_level.txt
