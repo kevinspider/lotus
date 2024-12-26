@@ -1,4 +1,5 @@
-import asyncio
+from lotus.thread_manager import ThreadManager
+from lotus.utils import merge_to_dict
 import time
 import hashlib
 from lotus.spider import Spider
@@ -8,7 +9,7 @@ class CustomSpider(Spider):
     def __init__(self):
         super().__init__("get", "http://10.0.0.15:8000/test")
         self.update_config(http_version=1)
-        self.update_config(proxy="http://127.0.0.1:8889")
+        # self.update_config(proxy="http://127.0.0.1:8889")
         # self.update_config(debug=False)
         # self.update_config(timeout=0.01)
 
@@ -43,18 +44,20 @@ class CustomSpider(Spider):
         return response.text
 
 
-if __name__ == '__main__':
-    # 创建自定义爬虫实例
-    api = CustomSpider()
-    result = api.download()
-    print(result)
+def main():
+    # 创建 ThreadManager 实例
+    manager = ThreadManager(max_workers=3)
 
-    # 异步
-    async def main():
-        for i in range(10):
-            api = CustomSpider()
-            result = await api.async_download()
-            print(result)
-    asyncio.run(main())
+    # 添加多个爬虫实例
+    results = manager.map("download", [CustomSpider() for i in range(5)])
+    print(results)
+    merge_to_dict(results, results)
+    print(results)
+
+
+
+
+if __name__ == "__main__":
+    main()
 
     
