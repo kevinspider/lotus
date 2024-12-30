@@ -1,27 +1,30 @@
-import hashlib
-import json
+import sys
 import time
-
-from lotus.response import Response
-from lotus.spider import Spider, Config
+import hashlib
+import jsonpath
+from lotus.spider import Spider, Config, Response
 from lotus.private import ABUYUN_PROXIES
+from lotus.thread_manager import ThreadContext, ThreadManager
 from lotus.utils import dict_to_json
+from loguru import logger
 
 
 class Api(Spider):
-    def __init__(self, keyword, location, page, tk, enc):
+    # 对于需要相对静态的变量使用类属性
+    context: ThreadContext = None
+    manager: ThreadManager = None
+
+    def __init__(self, keyword, location, page):
         self.keyword = keyword
         self.location = location
         self.page = page
-        self.tk = tk
-        self.enc = enc
-        config = Config(http_version=1, proxy="http://127.0.0.1:8889")
+        config = Config(http_version=1, proxies=ABUYUN_PROXIES, timeout=1, retry_times=10, log_file=None, log_level="DEBUG")
         super().__init__(
             "POST",
             "https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/",
             config,
         )
-
+    # 加密逻辑
     def get_sign(self, _m5_h5_tk, ts, data):
         inputStr = (
             _m5_h5_tk.split("_")[0] + "&" + str(ts) +
@@ -33,13 +36,14 @@ class Api(Spider):
         sign = m5.hexdigest()
         return sign
 
+    # 初始化请求参数
     def cookies(self):
         return {
             "ALIPAYJSESSIONID": "RZ55zX7ZXtG1DsRTcN5LjwFevAXNci58mobilegwRZ55",
             "_cc_": "WqG3DMC9EA%3D%3D",
             "_l_g_": "Ug%3D%3D",
-            "_m_h5_tk": self.tk,
-            "_m_h5_tk_enc": self.enc,
+            "_m_h5_tk": Api.context.get("_m_h5_tk"),
+            "_m_h5_tk_enc": Api.context.get("_m_h5_tk_enc"),
             "_nk_": "tb577169955",
             "_tb_token_": "3eee7e0856468",
             "atpsida": "e74266a4dc7a45c814a69a9b_1731652884_2",
@@ -131,51 +135,53 @@ class Api(Spider):
             'spm_pre': 'a21ybx.search.searchInput.0',
         }
 
-    def parse(self, response):
-        print(response.text)
-        return response.text
+    # 页面解析
+    def parse(self, response: Response):
+        logger.info(f"Parsing response for {self.keyword}, {self.location}, page {self.page}")
+        if self.is_ignore(response):
+            return None
+        if self.page == 1:
+            self.add_pages(response)
+        return response.text[0:100]
+    
+    # 爬虫子类自实现工具和调度
+    def add_pages(self, response: Response):
+        sku_nums = jsonpath.jsonpath(response.json(), "$..docNumWhenFirstPage")[0]
+        total_page = (sku_nums // 30) + 1
+        for page in range(2, total_page + 1):
+            # print("增加任务", page)
+            Api.manager.add_task("download", Api(self.keyword, self.location, page))
 
-    def is_update(self, response: Response) -> dict | str:
+    def is_ignore(self, response: Response):
         if '["FAIL_SYS_TOKEN_EXOIRED::令牌过期"]' in response.text:
-            return response.get_set_cookies("_m_h5_tk", "_m_h5_tk_enc")
-
-
-class Test(Spider):
-    def __init__(self, config=None):
-        config = Config(http_version=1, proxy="http://127.0.0.1:8889")
-        super().__init__("POST", "http://10.0.0.15:8000/test_json", config)
-
-    def headers(self):
-        return {
-            'accept': 'application/json',
-            'Content-Type': 'application/json',
-        }
-
-    def json(self):
-        return {
-            'name': 'string',
-        }
-        
-    def parse(self, response):
-        print(response.text)
-
-
+            cookies = response.get_set_cookies("_m_h5_tk", "_m_h5_tk_enc")
+            Api.context.update(**cookies)
+            Api.manager.add_task("download", Api(self.keyword, self.location, self.page))
+            logger.info("Token expired, updated cookies and re-added task")
+            return True
+        return False
+    
+    
 if __name__ == '__main__':
+    # 并发
+    manager = ThreadManager(max_workers=4)
+    # 上下文
+    context = ThreadContext(
+        _m_h5_tk="d903c89c3ad363d9cdf68fc07d4c4565_1733980172025",
+        _m_h5_tk_enc="974ad2908d599c5dc1673ef1570a71b5",
+    )
+    
+    Api.context = context
+    Api.manager = manager
 
-    result = Test().download()
-    print(result)
+    cities = ["宁波"]
+    keywords = ["口罩"]
+    tasks = [Api(keyword=keyword, location=city, page=1) for city in cities for keyword in keywords]
+    
+    for task in tasks:
+        manager.add_task("download", task)
 
-    # _m_h5_tk = "d903c89c3ad363d9cdf68fc07d4c4565_1733980172025"
-    # _m_h5_tk_enc = "974ad2908d599c5dc1673ef1570a71b5"
-    # while True:
-    #     api = Api(keyword="按需", location="江阴", page=1,
-    #               tk=_m_h5_tk, enc=_m_h5_tk_enc)
-    #     result = api.download()
-    #     if result['is_update'] is not None:
-    #         _m_h5_tk = result['is_update']['_m_h5_tk']
-    #         _m_h5_tk_enc = result['is_update']['_m_h5_tk_enc']
-    #         continue
-    #     else:
-    #         print(result)
-    #         break
-
+    results = manager.join_for_results()
+    for index, each in enumerate(results):
+        if each:  # 确保结果有效
+            logger.info(f"result_{index} {each[0:100]}")  # 打印每个结果的前100个字符

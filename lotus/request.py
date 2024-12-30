@@ -1,4 +1,3 @@
-from typing import Optional
 from curl_cffi.requests import Session, AsyncSession
 
 SESSION_ATTR = ["tread", "curl_options", "debug"]
@@ -51,16 +50,15 @@ class Request:
     def download(self):
         try:
             with Session(**self._session_config) as s:
-                print(self._request_config.get("headers", {}).get("Content-Type", ""))
                 return s.request(**self._request_config)
         except Exception as e:
-            print(f"download error {e}")
-        return None
+            raise e 
+        
 
     async def async_download(self):
         try:
             async with AsyncSession(**self._session_config) as s:
                 return await s.request(**self._request_config)
         except Exception as e:
-            print(f"download error {e}")
+            raise e
         return None

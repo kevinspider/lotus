@@ -17,14 +17,14 @@ class Response(ParentResponse):
         
         return response
 
-    def get_set_cookies(self, *args):
+    def get_set_cookies(self, *key_args):
         # curl_cffi 中, response 已经包含了最新 set 的 cookie
         bc = BaseCookie()
         # bc.load(" ".join(self.headers.get_list('Set-Cookie')))
         for each in self.headers.get_list("Set-Cookie"):
             bc.load(each)
         result = {}
-        for key in args:
+        for key in key_args:
             result[key] = bc.get(key).value
         return result
 

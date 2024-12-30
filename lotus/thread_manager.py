@@ -1,27 +1,46 @@
 import concurrent.futures
 from threading import Lock
 import copy
-from typing import Union, Callable
+from typing import Callable
+
+
+class ThreadContext:
+    def __init__(self, **kwargs) -> None:
+        self._context = kwargs
+        self._lock = Lock()
+
+    def update(self, **kwargs) -> None:
+        with self._lock:
+            self._context.update(kwargs)
+
+    def get(self, key) -> None:
+        with self._lock:
+            return self._context.get(key)
+    
+    def get_dict(self):
+        with self._lock:
+            return dict(self._context)
+
 
 class ThreadManager:
-    def __init__(self, max_workers=5):
-        # 初始化线程池，默认最大线程数为5
+    def __init__(self, max_workers=4):
+        # 初始化线程池，默认最大线程数为4
         self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=max_workers)
-        # 初始化数据存储字典和锁
-        self.data_store = {}
+        # 初始化数据存储列表和锁
+        self.data_store = []
         self.lock = Lock()
         self.futures = []
 
-    def add_task(self, task_callable, *args, **kwargs):
+    def add_task(self, func_name: str, spider):
         # 提交任务实例并提交任务
-        future = self.executor.submit(self.execute_task, task_callable, f"task-{len(self.futures)}", *args, **kwargs)
+        func = getattr(spider, func_name)
+        future = self.executor.submit(self.execute_task, func)
         self.futures.append(future)
 
-    def execute_task(self, task_callable, key, *args, **kwargs):
+    def execute_task(self, func: Callable):
         # 执行任务并存储结果
-        result = task_callable(*args, **kwargs)
-        print(f"Result for {key}: {result}")
-        self.save_result(key, result)
+        result = func()
+        self.save_result(result)
 
     def join(self):
         # 等待所有任务完成
@@ -39,17 +58,16 @@ class ThreadManager:
             self.data_store.clear()  # 清空数据存储
         return data_copy
 
-    def save_result(self, key, value):
+    def save_result(self, value):
         # 存储数据，使用锁以确保线程安全
-        with self.lock:
-            self.data_store[key] = value
+        if value is not None:  # 仅在结果不为 None 时存储
+            with self.lock:
+                self.data_store.append(value)
 
-    def map(self, func_name:str, spiders):
+    def map(self, func_name: str, spiders):
         # 使用线程池的 map 方法
         return list(self.executor.map(lambda spider: getattr(spider, func_name)(), spiders))
 
-
-
     def __del__(self):
-        # 析构函数中关闭线程池
+        # 确保在析构函数中关闭线程池
         self.executor.shutdown(wait=True)

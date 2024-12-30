@@ -20,7 +20,6 @@ class ThreadManager:
     def execute_task(self, task_callable, key, *args, **kwargs):
         # 执行任务并存储结果
         result = task_callable(*args, **kwargs)
-        print(f"Result for {key}: {result}")
         self.save_result(key, result)
 
     def join(self):
