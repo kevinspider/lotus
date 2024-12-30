@@ -1,0 +1,111 @@
+#!/usr/bin/env node
+
+// Required parameters:
+// @raycast.schemaVersion 1
+// @raycast.title kspider
+// @raycast.mode fullOutput
+
+// Optional parameters:
+// @raycast.icon 🤖
+
+// Documentation:
+// @raycast.author kevinspider
+// @raycast.authorURL https://raycast.com/kevinspider
+
+import ncp from "copy-paste";
+import { toPython } from "curlconverter";
+import closeRayCast from "./closeRayCast.js";
+
+// const curl = process.argv[2];
+
+function parse() {
+    const curl = ncp.paste();
+
+    if (curl.indexOf("lotus.spider") >= 0) {
+        closeRayCast("", "");
+        return;
+    }
+
+    let code = toPython(curl);
+
+    // console.log(code)
+
+    // 获取 url 和请求方式
+    const [method, url] = /^response = requests\.(post|get)\(.*?'(.*?)',.*$/gms
+        .exec(code)
+        .slice(1);
+
+    // 取消注释
+    code = code.replace(/^#.*$/gm, "");
+
+    // 转换变量为函数
+    code = code.replace(/^import requests.*$/gm, "");
+    code = code.replace(/^response = requests.*?\)$/gms, "");
+    code = code.replace(
+        /^(params|headers|cookies|data) = (.*)/gm,
+        "def $1(self):\n    return $2"
+    );
+    code = code.replace(
+        /^(json_data) = (.*)/gm,
+        "def json(self):\n    return $2"
+    );
+    code = code.trim();
+
+    // 将字符串转换为数组处理
+    let codeList = code.split("\n");
+
+    // 缩进
+    for (let index in codeList) {
+        if (!/^(def|@property|\s{4}return|$)/gm.test(codeList[index])) {
+            codeList[index] = "    " + codeList[index];
+        }
+
+        // 整体缩进 4 个空格
+        codeList[index] = "    " + codeList[index];
+    }
+
+    // 添加依赖和构建类
+    codeList.unshift(
+        "from loguru import logger",
+        "from lotus.spider import Spider, Config, Response",
+        "from lotus.thread_manager import ThreadContext, ThreadManager",
+        "",
+        "class API(Spider):",
+        "    context: ThreadContext = None",
+        "    manager: ThreadManager = None",
+        "",
+        "    def __init__(self):",
+        "        config = Config()",
+        `        super().__init__(url='${url}', method='${method.toUpperCase()}', config=config)`,
+        ""
+    );
+
+    codeList.push(
+        "",
+        "    def parse(self, res: Response):",
+        "        logger.info(res.text)",
+        "        return None",
+        "",
+        "",
+        'if __name__ == "__main__":',
+        "    api = API()",
+        "    api.download()"
+    );
+
+    // 按 PEP8 开发规范，文件应当以空行结尾
+    codeList.push("");
+
+    // console.log(codeList);
+    // 转列表为字符串
+    code = codeList.join("\n");
+
+    // 判断是否需要退出
+    if (closeRayCast(code, ncp.paste())) {
+        return;
+    }
+    ncp.copy(code, () => {
+        console.log(code);
+    });
+}
+
+parse();
