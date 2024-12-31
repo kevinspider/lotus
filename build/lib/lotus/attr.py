@@ -2,6 +2,8 @@ from typing import Callable, Dict, Literal, Optional, Tuple, TypedDict, Union
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import *
 from curl_cffi.requests.session import *
+from loguru import logger
+
 
 
 class Config(TypedDict, total=False):
@@ -41,17 +43,22 @@ class Config(TypedDict, total=False):
     stream: bool = False
     max_recv_speed: int = 0
     multipart: Optional[CurlMime] = None
+    # add by kevin
+    retry_times:int = 3
+    log_level: Literal["DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"]
+    log_file: Optional[str] = None
+
 
 
 class AttrMixin:
         
-    def __init__(self):
+    def __init__(self, config: Optional[Config] = None):
         self._params = None
         self._data = None
         self._headers = None
         self._json = None
         self._cookies = None
-        self._config = {}
+        self._config = None
 
         # 初始化懒加载的属性
         self._params: Optional[dict] = self.params()
@@ -60,6 +67,8 @@ class AttrMixin:
         self._json: Optional[dict] = self.json()
         self._cookies: Optional[dict] = self.cookies()
         self._config: Config = self.config()
+        if config is not None:
+            self.update_config(**config)
 
     # config 属性
 

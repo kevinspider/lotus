@@ -1,4 +1,5 @@
 import json
+from jsonpath import jsonpath
 from typing import Iterable, Hashable, Dict
 
 
@@ -9,3 +10,5 @@ def dict_to_json(data: Dict, ensure_ascii=False, separators=(',', ':')):
     return json.dumps(data, ensure_ascii=ensure_ascii, separators=separators)
 
 
+def json_parse(*key_list, dict_obj:dict):
+    jsonpath(dict_obj,)

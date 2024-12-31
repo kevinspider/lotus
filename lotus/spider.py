@@ -1,4 +1,5 @@
 import sys
+import traceback
 from loguru import logger
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import *
@@ -159,23 +160,25 @@ class Spider(AttrMixin):
             except Exception as e:
                 retry_times -= 1
                 logger.debug(f"Download error {e}, retrying...")
+                if self._config.get("log_level") == "DEBUG":
+                    traceback.print_exc()
         logger.critical(f"Ignore request, retry_time is {self._config.get('retry_times')}")
 
 
-    async def async_download(self) -> dict:
-        retry_times = self._config.get("retry_times", 3)
-        while retry_times:
-            try:
-                result = {}
-                response = await self.make_request().async_download()
-                result['is_next'] = self.is_next(response)
-                result['is_ignore'] = self.is_ignore(response)
-                result['is_retry'] = self.is_retry(response)
-                result['is_update'] = self.is_update(response)
-                result['data'] = self.parse(response)     
-                return result
-            except Exception as e:
-                retry_times -= 1
+    # async def async_download(self) -> dict:
+    #     retry_times = self._config.get("retry_times", 3)
+    #     while retry_times:
+    #         try:
+    #             result = {}
+    #             response = await self.make_request().async_download()
+    #             result['is_next'] = self.is_next(response)
+    #             result['is_ignore'] = self.is_ignore(response)
+    #             result['is_retry'] = self.is_retry(response)
+    #             result['is_update'] = self.is_update(response)
+    #             result['data'] = self.parse(response)     
+    #             return result
+    #         except Exception as e:
+    #             retry_times -= 1
 
     # 子类重写 解析页面数据
     def parse(self, response: Response) -> dict | str | None:

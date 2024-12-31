@@ -2,6 +2,7 @@ README.md
 setup.py
 lotus/__init__.py
 lotus/attr.py
+lotus/logging.py
 lotus/private.py
 lotus/request.py
 lotus/response.py

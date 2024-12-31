@@ -18,7 +18,7 @@ class Api(Spider):
         self.keyword = keyword
         self.location = location
         self.page = page
-        config = Config(http_version=1, proxies=ABUYUN_PROXIES, timeout=1, retry_times=10, log_file=None, log_level="DEBUG")
+        config = Config(http_version=1, proxies=ABUYUN_PROXIES, timeout=1, retry_times=10, log_file="lotus.log", log_level="INFO")
         super().__init__(
             "POST",
             "https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/",
@@ -161,7 +161,7 @@ class Api(Spider):
             return True
         return False
     
-    
+
 if __name__ == '__main__':
     # 并发
     manager = ThreadManager(max_workers=4)

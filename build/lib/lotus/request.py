@@ -36,7 +36,6 @@ REQUEST_ATTR = [
     "multipart"
 ]
 
-
 class Request:
     def __init__(self, **kwargs) -> None:
         self._session_config = {}
@@ -53,13 +52,13 @@ class Request:
             with Session(**self._session_config) as s:
                 return s.request(**self._request_config)
         except Exception as e:
-            print(f"download error {e}")
-        return None
+            raise e 
+        
 
     async def async_download(self):
         try:
             async with AsyncSession(**self._session_config) as s:
                 return await s.request(**self._request_config)
         except Exception as e:
-            print(f"download error {e}")
+            raise e
         return None

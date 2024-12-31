@@ -1,0 +1,78 @@
+2024-12-30 11:31:24.282 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 11:31:24.285 | INFO     | __main__:is_ignore:160 - Token expired, updated cookies and re-added task
+2024-12-30 11:31:25.153 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 11:31:25.935 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2024-12-30 11:31:27.086 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2024-12-30 11:31:27.850 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2024-12-30 11:31:27.933 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2024-12-30 11:31:28.118 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2024-12-30 11:31:28.145 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2024-12-30 11:31:28.635 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2024-12-30 11:31:29.529 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2024-12-30 11:31:29.910 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2024-12-30 11:31:32.031 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2024-12-30 11:31:36.822 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2024-12-30 11:31:36.824 | INFO     | __main__:<module>:187 - result_0 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.825 | INFO     | __main__:<module>:187 - result_1 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.826 | INFO     | __main__:<module>:187 - result_2 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.826 | INFO     | __main__:<module>:187 - result_3 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.827 | INFO     | __main__:<module>:187 - result_4 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.827 | INFO     | __main__:<module>:187 - result_5 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.828 | INFO     | __main__:<module>:187 - result_6 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.828 | INFO     | __main__:<module>:187 - result_7 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.829 | INFO     | __main__:<module>:187 - result_8 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.829 | INFO     | __main__:<module>:187 - result_9 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.829 | INFO     | __main__:<module>:187 - result_10 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 11:31:36.830 | INFO     | __main__:<module>:187 - result_11 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:45:53.463 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 17:45:53.469 | INFO     | __main__:is_ignore:160 - Token expired, updated cookies and re-added task
+2024-12-30 17:45:54.325 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 17:45:55.269 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2024-12-30 17:45:56.035 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2024-12-30 17:45:56.356 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2024-12-30 17:45:57.202 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2024-12-30 17:45:57.299 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2024-12-30 17:45:58.884 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2024-12-30 17:45:59.736 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2024-12-30 17:46:00.016 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2024-12-30 17:46:02.278 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2024-12-30 17:46:02.542 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2024-12-30 17:46:03.227 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2024-12-30 17:46:03.228 | INFO     | __main__:<module>:187 - result_0 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.229 | INFO     | __main__:<module>:187 - result_1 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.229 | INFO     | __main__:<module>:187 - result_2 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.229 | INFO     | __main__:<module>:187 - result_3 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.230 | INFO     | __main__:<module>:187 - result_4 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.230 | INFO     | __main__:<module>:187 - result_5 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.230 | INFO     | __main__:<module>:187 - result_6 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.230 | INFO     | __main__:<module>:187 - result_7 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.231 | INFO     | __main__:<module>:187 - result_8 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.231 | INFO     | __main__:<module>:187 - result_9 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.231 | INFO     | __main__:<module>:187 - result_10 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:46:03.231 | INFO     | __main__:<module>:187 - result_11 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:06.681 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 17:49:06.684 | INFO     | __main__:is_ignore:160 - Token expired, updated cookies and re-added task
+2024-12-30 17:49:09.602 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2024-12-30 17:49:10.482 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2024-12-30 17:49:11.532 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2024-12-30 17:49:11.564 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2024-12-30 17:49:12.425 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2024-12-30 17:49:12.508 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2024-12-30 17:49:12.630 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2024-12-30 17:49:13.274 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2024-12-30 17:49:13.394 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2024-12-30 17:49:13.493 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2024-12-30 17:49:14.359 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2024-12-30 17:49:18.195 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2024-12-30 17:49:18.196 | INFO     | __main__:<module>:187 - result_0 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.197 | INFO     | __main__:<module>:187 - result_1 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.198 | INFO     | __main__:<module>:187 - result_2 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.198 | INFO     | __main__:<module>:187 - result_3 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.199 | INFO     | __main__:<module>:187 - result_4 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.199 | INFO     | __main__:<module>:187 - result_5 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.200 | INFO     | __main__:<module>:187 - result_6 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.200 | INFO     | __main__:<module>:187 - result_7 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.201 | INFO     | __main__:<module>:187 - result_8 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.201 | INFO     | __main__:<module>:187 - result_9 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.202 | INFO     | __main__:<module>:187 - result_10 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2024-12-30 17:49:18.202 | INFO     | __main__:<module>:187 - result_11 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],

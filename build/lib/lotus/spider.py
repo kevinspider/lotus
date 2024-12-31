@@ -1,12 +1,13 @@
-from typing import Callable, Dict, Literal, Optional, Tuple, TypedDict, Union
+import sys
+from loguru import logger
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import *
 from curl_cffi.requests.session import *
-from typing_extensions import Unpack
 from lotus.request import Request
-from lotus.attr import AttrMixin
+from lotus.attr import AttrMixin, Config
 from lotus.response import Response
-
+from typing import Optional
+from lotus.utils import dict_to_json
 
 """
 requests 参数
@@ -47,16 +48,47 @@ requests 参数
     multipart: Optional[CurlMime] = None,
 """
 
+logger = logger
+
+# 定义一个函数来配置 logger
+def configure_logger(log_file: str = None, log_level: str = "DEBUG"):
+    # 添加新的处理器
+    if log_file:
+        # 移除所有现有的处理器
+        logger.remove()
+        logger.add(sink=sys.stdout, level=log_level, enqueue=True)
+        logger.add(sink=log_file, level=log_level, enqueue=True)
+        
+    else:
+        # 移除所有现有的处理器
+        logger.remove()
+        logger.add(sink=sys.stdout, level=log_level, enqueue=True)
+
 
 class Spider(AttrMixin):
-    def __init__(self, method: HttpMethod, url: str) -> None:
-        super().__init__()
+    _log_configed = False
+    
+    def __init__(self, method: HttpMethod, url: str, config: Optional[Config] = None) -> None:
+        # 初始化 config, 获取默认值
+        self._config = self.config()
+        # 添加 url 和 method
         self._config['url'] = url
         self._config['method'] = method
+        
+        # 加载用户自定义的 config
+        if config is not None:
+            self.update_config(**config)
+        
+        # 配置 logger
+        if Spider._log_configed is False:
+            configure_logger(self._config.get("log_file"), self._config.get("log_level"))
+            Spider._log_configed = True
 
-    # config 默认值
-    def config(self) -> dict:
-        return {
+        super().__init__(self._config)
+    
+    # config 默认值定义在 Spider 中; Config 类型定义在 AttrMixin 中
+    def config(self) -> Config:
+        config: Config = {
             "timeout": 30,
             "allow_redirects": True,
             "max_redirects": 30,
@@ -67,23 +99,25 @@ class Spider(AttrMixin):
             "impersonate": DEFAULT_CHROME,
             "default_encoding": "utf-8",
             "quote":  "",
-            "http_version": CurlHttpVersion.V2_0,
+            "http_version": CurlHttpVersion.V1_1,
             "debug":  False,
             "stream": False,
             "max_recv_speed": 0,
-            # 自定义属性, 非 curl_cffi 的属性
-            "retry_time": 5
+            # 自定义属性, 非 curl_cffi 的属性, 会在 Request() 实例化的时候, 被 Request 过滤掉, 不会传递给 Request 和 Session
+            "retry_times": 5,
+            "log_file": None,
+            "log_level": "DEBUG"
         }
+        return config
 
     # 特定参数的默认实现，可以在子类中重写
-
     def headers(self) -> dict | None:
         return None
 
     def params(self) -> dict | None:
         return None
 
-    def data(self) -> dict | None:
+    def data(self) -> dict | str | bytes | None:
         return None
 
     def json(self) -> dict | None:
@@ -92,14 +126,6 @@ class Spider(AttrMixin):
     def cookies(self) -> dict | None:
         return None
 
-    # 子类重写
-    def pre_request(self) -> None:
-        return None
-
-    # 子类或者Minxin 重写
-    def save_data(self, data: dict) -> None:
-        pass
-
     def make_request(self) -> Request:
         """子类介入时机, 通过 set 或者 update 的方式改变 self.xxx 的值"""
         self.pre_request()
@@ -107,24 +133,34 @@ class Spider(AttrMixin):
         """构建请求体"""
         self._config['params'] = self.get_params()
         self._config['headers'] = self.get_headers()
-        self._config['json'] = self.get_json()
-        self._config['data'] = self.get_data()
+        # 如果此处传递 json, 直接截断
+        json_data = self.get_json()
+        # 包含了 json 就肯定不能包含 data, 互斥
+        if json_data is not None:
+            self._config['data'] = dict_to_json(json_data).encode("utf-8")
+            assert self.get_data() is None
+        else:
+            self._config['data'] = self.get_data()
+        self._config['cookies'] = self.get_cookies()
         return Request(**self._config)
 
-    def download(self) -> dict:
-        retry_times = self._config.get("retry_times", 3)
+    # 子类按需要重写, 提供了 request 的 hook
+    def pre_request(self) -> None:
+        return None
+
+    def download(self) -> dict | None:
+        retry_times = self._config.get("retry_times")
         while retry_times:
             try:
-                result = {}
-                response = self.make_request().download()
-                result['has_next'] = self.has_next(response)
-                result['ignore'] = self.ignore(response)
-                result['retry'] = self.retry(response)
-                result['data'] = self.parse(response)
-                self.save_data(result)
-                return result
+                parent_response = self.make_request().download()
+                response = Response.from_parent(parent_response)
+                final_result = self.parse(response)
+                return final_result
             except Exception as e:
                 retry_times -= 1
+                logger.debug(f"Download error {e}, retrying...")
+        logger.critical(f"Ignore request, retry_time is {self._config.get('retry_times')}")
+
 
     async def async_download(self) -> dict:
         retry_times = self._config.get("retry_times", 3)
@@ -132,23 +168,15 @@ class Spider(AttrMixin):
             try:
                 result = {}
                 response = await self.make_request().async_download()
-                result['has_next'] = self.has_next(response)
-                result['ignore'] = self.ignore(response)
-                result['retry'] = self.retry(response)
-                result['data'] = self.parse(response)
-                self.save_data(result)
+                result['is_next'] = self.is_next(response)
+                result['is_ignore'] = self.is_ignore(response)
+                result['is_retry'] = self.is_retry(response)
+                result['is_update'] = self.is_update(response)
+                result['data'] = self.parse(response)     
                 return result
             except Exception as e:
                 retry_times -= 1
 
-    def parse(self, response: Response) -> dict | str:
-        pass
-
-    def has_next(self, response: Response) -> bool:
-        return False
-
-    def retry(self, response: Response) -> bool:
-        return False
-
-    def ignore(self, response: Response) -> bool:
-        return False
+    # 子类重写 解析页面数据
+    def parse(self, response: Response) -> dict | str | None:
+        return None
