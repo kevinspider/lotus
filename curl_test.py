@@ -18,7 +18,6 @@ class API(Spider):
         self.page = page
         super().__init__(url='https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.wx.search/1.0/',
                          method='POST', config=config)
-        
 
     def cookies(self):
         return {
@@ -82,25 +81,24 @@ class API(Spider):
     def parse(self, res: Response):
         if self.is_update(res):
             return API(self.keyword, self.location, self.page).download()
-        
+
         for each in res.json()['data']['resultList']:
             result = json_parse(each, ['exContent'])['exContent']
             API.context['df'] = merge_data(result, API.context['df'])
-        
-        logger.info(f"page is {self.page} items:{len(res.json()['data']['resultList'])} totol:{len(API.context['df'])}")
+
+        logger.info(
+            f"page is {self.page} items:{len(res.json()['data']['resultList'])} totol:{len(API.context['df'])}")
 
         if self.has_next(res):
             return API(self.keyword, self.location, self.page + 1).download()
-        
-        
-    
+
     def is_update(self, res: Response):
         if '["FAIL_SYS_TOKEN_EXOIRED::令牌过期"]' in res.text:
             cookies = res.get_set_cookies("_m_h5_tk", "_m_h5_tk_enc")
             API.context.update(cookies)
             return True
         return False
-    
+
     def has_next(self, res: Response):
         next_page = jsonpath.jsonpath(res.json(), "$..hasNextPage")
         if next_page:
@@ -117,7 +115,7 @@ if __name__ == "__main__":
     }
 
     API.context = context
-    
+
     keyword = "口罩"
     location = "宁波"
     page = 1
