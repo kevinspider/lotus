@@ -76,3 +76,562 @@
 2024-12-30 17:49:18.201 | INFO     | __main__:<module>:187 - result_9 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
 2024-12-30 17:49:18.202 | INFO     | __main__:<module>:187 - result_10 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
 2024-12-30 17:49:18.202 | INFO     | __main__:<module>:187 - result_11 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:06.451 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:35:06.452 | INFO     | __main__:is_ignore:160 - Token expired, updated cookies and re-added task
+2025-01-06 09:35:07.387 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:35:08.151 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:35:08.286 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:35:08.378 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:35:09.027 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:35:09.078 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:35:09.932 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:35:10.199 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:35:10.706 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:35:11.062 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:35:11.317 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:35:12.509 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:35:13.956 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:35:13.958 | INFO     | __main__:<module>:187 - result_0 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.958 | INFO     | __main__:<module>:187 - result_1 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.959 | INFO     | __main__:<module>:187 - result_2 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.959 | INFO     | __main__:<module>:187 - result_3 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.960 | INFO     | __main__:<module>:187 - result_4 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.960 | INFO     | __main__:<module>:187 - result_5 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.960 | INFO     | __main__:<module>:187 - result_6 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.961 | INFO     | __main__:<module>:187 - result_7 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.961 | INFO     | __main__:<module>:187 - result_8 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.962 | INFO     | __main__:<module>:187 - result_9 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.962 | INFO     | __main__:<module>:187 - result_10 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.962 | INFO     | __main__:<module>:187 - result_11 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:13.963 | INFO     | __main__:<module>:187 - result_12 {"api":"mtop.taobao.idlemtopsearch.pc.search","data":{"appBar":{},"filterBar":{"filterBarCellDO":[],
+2025-01-06 09:35:42.357 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:35:42.362 | INFO     | __main__:is_ignore:161 - Token expired, updated cookies and re-added task
+2025-01-06 09:35:43.258 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:35:44.155 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:35:45.128 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:35:45.142 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:35:46.184 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:35:46.333 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:35:47.278 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:35:48.253 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:35:48.287 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:35:49.306 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:35:49.442 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:35:49.501 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:35:51.474 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:39:57.910 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:39:57.915 | INFO     | __main__:is_ignore:161 - Token expired, updated cookies and re-added task
+2025-01-06 09:39:58.823 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:39:59.626 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:39:59.770 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:39:59.909 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:40:00.773 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:40:00.919 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:40:01.727 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:40:01.923 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:40:02.635 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:40:02.712 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:40:02.850 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:40:03.012 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:40:03.195 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:41:41.175 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:41:41.179 | INFO     | __main__:is_ignore:161 - Token expired, updated cookies and re-added task
+2025-01-06 09:41:42.012 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:41:42.833 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:41:42.981 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:41:43.103 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:41:43.170 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:41:43.859 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:41:44.154 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:41:44.246 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:41:44.263 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:41:45.419 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:41:45.928 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:41:46.219 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:41:47.467 | INFO     | __main__:parse:140 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:24.564 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:24.611 | INFO     | __main__:is_ignore:165 - Token expired, updated cookies and re-added task
+2025-01-06 09:49:25.491 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:26.306 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:26.475 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:26.507 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:26.744 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:27.313 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:27.686 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:27.926 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:28.303 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:28.588 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:28.871 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:28.910 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:29.289 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:30.017 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:30.198 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:31.280 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:31.426 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:31.598 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:31.963 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:32.477 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:32.796 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:33.485 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:33.626 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:49:33.798 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:34.601 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:35.418 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:35.559 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:35.577 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:35.759 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:35.811 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:35.936 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:36.386 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:49:36.575 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:36.788 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:37.680 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:49:38.322 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:49:38.580 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:38.738 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:39.775 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:40.491 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:40.777 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:41.250 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:49:42.122 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:49:42.432 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:42.697 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:42.883 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:49:43.326 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:43.561 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:43.764 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:49:44.064 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:49:44.308 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:45.186 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:49:45.246 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:45.318 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:45.474 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:49:45.621 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:45.780 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:49:45.921 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:46.783 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:47.504 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:49:47.638 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:49:47.781 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:48.142 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:49.494 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:49:49.737 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:50.142 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:51.151 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:51.540 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:51.673 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:49:52.457 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:49:52.561 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:49:52.718 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:53.083 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:53.430 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:49:54.039 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:54.476 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:49:54.607 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:55.011 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:49:55.157 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:55.352 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:55.498 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:49:55.639 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:49:56.246 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:56.396 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:49:56.397 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:49:57.036 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:49:58.394 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:59.418 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:49:59.563 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:00.280 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:50:00.459 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:50:00.567 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:00.999 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:50:02.234 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:50:02.377 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:50:02.477 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:02.528 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:03.038 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:50:03.188 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:50:03.323 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:03.421 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:04.085 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:50:04.225 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:04.312 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:04.380 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:05.046 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:05.236 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:05.397 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:50:05.462 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:05.634 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:05.959 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:06.428 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:50:06.523 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:06.935 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:07.072 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:07.500 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:50:07.644 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:07.896 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:08.223 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:09.185 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:10.107 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:10.598 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:10.635 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:50:10.860 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:11.069 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:11.627 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:50:11.726 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:11.979 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:12.626 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:50:12.721 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:12.831 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:12.911 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:50:13.034 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:50:13.595 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:50:13.891 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:50:14.452 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:50:14.770 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:50:14.957 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:50:15.040 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:50:15.053 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:51:52.436 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:52.442 | INFO     | __main__:is_ignore:166 - Token expired, updated cookies and re-added task
+2025-01-06 09:51:53.275 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:54.233 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:51:54.385 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:55.373 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:51:55.450 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:56.540 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:51:56.707 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:57.657 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:51:57.737 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:51:57.886 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:51:58.793 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:51:58.969 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:51:59.887 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:00.020 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:52:00.049 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:01.073 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:02.032 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:02.178 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:02.325 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:52:03.108 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:03.509 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:03.970 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:04.113 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:04.118 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:04.252 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:04.376 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:04.389 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:05.157 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:05.247 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:05.952 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:06.438 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:06.882 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:07.369 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:07.498 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:07.599 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:07.879 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:08.415 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:08.599 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:08.801 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:09.709 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:09.818 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:10.579 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:10.892 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:11.423 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:11.667 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:11.791 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:11.917 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:12.636 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:12.779 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:12.905 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:12.936 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:13.586 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:13.782 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:14.042 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:14.520 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:14.650 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:14.799 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:14.856 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:15.431 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:15.627 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:16.287 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:16.449 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:16.784 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:17.149 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:17.792 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:18.090 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:18.671 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:18.984 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:19.546 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:19.876 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:19.975 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:20.423 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:20.955 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:21.444 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:21.666 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:22.078 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:23.217 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:23.359 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:23.498 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:23.903 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:24.016 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:24.201 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:24.282 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:24.660 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:24.816 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:24.946 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:25.367 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:26.471 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:26.909 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:27.023 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:27.453 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:27.970 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:28.791 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:28.903 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:28.983 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:29.885 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:30.053 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:30.491 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:30.840 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:31.334 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:31.839 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:32.853 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:32.962 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:33.004 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:33.199 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:33.334 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:34.068 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:34.216 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:34.830 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:34.961 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:35.055 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:35.225 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:35.797 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:36.187 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:36.833 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:36.988 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:37.187 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:37.799 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:37.938 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:38.085 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:38.985 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:39.118 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:40.036 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:40.676 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:40.940 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:41.829 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:42.105 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:42.185 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:52:42.594 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:42.628 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:43.378 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:52:43.437 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:43.634 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:43.710 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:52:43.888 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:43.893 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:44.317 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:44.628 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:44.843 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:52:44.970 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:45.197 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:45.738 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:45.875 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:46.150 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:46.567 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:46.685 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:48.085 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:48.553 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:48.645 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:48.876 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:49.096 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:49.634 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:49.762 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:50.508 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:50.770 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:50.894 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:51.751 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:52.450 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:52:52.706 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:53.060 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:52:53.185 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:53.585 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:53.589 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:52:53.719 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:53.733 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:52:53.844 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:52:53.878 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:54.599 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:54.802 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:55.471 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:55.603 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:55.743 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:56.407 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:56.428 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:56.673 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:57.365 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:52:57.530 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:57.530 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:57.774 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:58.627 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:52:58.734 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:58.890 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:59.734 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:52:59.877 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:52:59.907 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:53:00.766 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:53:00.861 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:00.992 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:53:02.572 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:02.788 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:53:02.892 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:03.130 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:53:03.301 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:03.415 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:03.914 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:53:04.056 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:04.102 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:04.231 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:04.385 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:53:05.039 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:05.260 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:06.196 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:06.445 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:53:06.872 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:53:07.064 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:07.204 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:07.877 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:53:08.151 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:08.791 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:53:09.990 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:10.237 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:10.710 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:53:11.246 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:11.629 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:12.246 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:12.452 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:53:12.742 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:53:13.222 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:53:13.283 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:53:13.471 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:13.492 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:13.933 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:14.403 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:53:14.711 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:53:15.207 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:53:15.349 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:16.162 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:53:16.773 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:53:17.240 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:17.631 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:53:18.105 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:18.143 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:53:20.196 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:21.239 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:21.280 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:53:21.534 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:53:21.632 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:53:21.750 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:22.506 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:53:23.380 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:53:23.511 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:23.613 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 09:53:23.687 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:23.738 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10
+2025-01-06 09:53:24.272 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:53:24.521 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:53:24.640 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:25.326 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:53:25.551 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:27.647 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:28.561 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:53:28.569 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:43.109 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:43.113 | INFO     | __main__:is_ignore:166 - Token expired, updated cookies and re-added task
+2025-01-06 09:54:44.992 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:45.996 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:54:46.045 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:47.082 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:47.113 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:48.252 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:49.097 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:49.250 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:54:49.290 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:50.035 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:50.441 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:50.991 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:51.483 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:51.632 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:52.559 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:52.648 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:54:53.667 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:53.708 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:54:53.977 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10, url=https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/
+2025-01-06 09:54:54.752 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:54:54.894 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:55.064 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:54:55.234 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10, url=https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/
+2025-01-06 09:54:55.961 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:54:56.022 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:54:56.173 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:54:56.230 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10, url=https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/
+2025-01-06 09:54:56.239 | CRITICAL | lotus.spider:download:165 - Ignore request, retry_time is 10, url=https://h5api.m.goofish.com/h5/mtop.taobao.idlemtopsearch.pc.search/1.0/
+2025-01-06 09:56:48.243 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:56:48.249 | INFO     | __main__:is_ignore:162 - Token expired, updated cookies and re-added task
+2025-01-06 09:56:49.114 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 09:56:50.262 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 09:56:51.132 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 09:56:51.264 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 09:56:52.158 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 09:56:52.172 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 09:56:52.422 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 09:56:52.458 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 09:56:53.327 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 09:56:54.249 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 09:56:54.389 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 09:56:54.551 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 09:56:54.675 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 10:12:36.723 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:12:36.804 | INFO     | __main__:is_ignore:162 - Token expired, updated cookies and re-added task
+2025-01-06 10:12:37.688 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:12:38.610 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 10:12:38.826 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 10:12:39.608 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 10:12:39.717 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 10:12:39.821 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 10:12:40.766 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 10:12:40.901 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 10:12:41.761 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 10:12:42.745 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 10:12:42.875 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 10:12:43.794 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 10:12:45.060 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 10:13:51.019 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:13:51.021 | INFO     | __main__:is_ignore:162 - Token expired, updated cookies and re-added task
+2025-01-06 10:13:51.933 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:13:52.832 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 10:13:52.970 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 10:13:53.839 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 10:13:54.773 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 10:13:54.963 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7
+2025-01-06 10:13:55.865 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 10:13:55.896 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 10:13:56.006 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 10:13:56.940 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 10:13:57.034 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 10:13:57.971 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 10:13:58.098 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 10:15:00.997 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:15:01.001 | INFO     | __main__:is_ignore:162 - Token expired, updated cookies and re-added task
+2025-01-06 10:15:02.941 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 1
+2025-01-06 10:15:03.859 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 2
+2025-01-06 10:15:04.000 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 4
+2025-01-06 10:15:04.014 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 3
+2025-01-06 10:15:05.826 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 6
+2025-01-06 10:15:06.018 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 5
+2025-01-06 10:15:06.718 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 9
+2025-01-06 10:15:06.924 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 10
+2025-01-06 10:15:07.127 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 8
+2025-01-06 10:15:08.597 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 11
+2025-01-06 10:15:08.843 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 12
+2025-01-06 10:15:09.245 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 13
+2025-01-06 10:15:10.270 | INFO     | __main__:parse:141 - Parsing response for 口罩, 宁波, page 7

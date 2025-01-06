@@ -2,10 +2,11 @@ import sys
 import time
 import hashlib
 import jsonpath
+import pandas as pd
 from lotus.spider import Spider, Config, Response
 from lotus.private import ABUYUN_PROXIES
 from lotus.thread_manager import ThreadContext, ThreadManager
-from lotus.utils import dict_to_json
+from lotus.utils import dict_to_json, json_parse, save_data
 from loguru import logger
 
 
@@ -142,7 +143,8 @@ class Api(Spider):
             return None
         if self.page == 1:
             self.add_pages(response)
-        return response.text[0:100]
+        result = json_parse(response.json(), ["area", "price", "title", "itemId"], "$.data.resultList")
+        return result
     
     # 爬虫子类自实现工具和调度
     def add_pages(self, response: Response):
@@ -152,6 +154,7 @@ class Api(Spider):
             # print("增加任务", page)
             Api.manager.add_task("download", Api(self.keyword, self.location, page))
 
+    # 更新 set-cookies
     def is_ignore(self, response: Response):
         if '["FAIL_SYS_TOKEN_EXOIRED::令牌过期"]' in response.text:
             cookies = response.get_set_cookies("_m_h5_tk", "_m_h5_tk_enc")
@@ -165,6 +168,10 @@ class Api(Spider):
 if __name__ == '__main__':
     # 并发
     manager = ThreadManager(max_workers=4)
+    
+    # 数据存储
+    df = pd.DataFrame()
+    
     # 上下文
     context = ThreadContext(
         _m_h5_tk="d903c89c3ad363d9cdf68fc07d4c4565_1733980172025",
@@ -182,6 +189,8 @@ if __name__ == '__main__':
         manager.add_task("download", task)
 
     results = manager.join_for_results()
-    for index, each in enumerate(results):
-        if each:  # 确保结果有效
-            logger.info(f"result_{index} {each[0:100]}")  # 打印每个结果的前100个字符
+    for each in results:
+        df = save_data(each, df)
+    
+    df.to_excel("result.xlsx")
+    

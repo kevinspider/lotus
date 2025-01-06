@@ -159,10 +159,11 @@ class Spider(AttrMixin):
                 return final_result
             except Exception as e:
                 retry_times -= 1
-                logger.debug(f"Download error {e}, retrying...")
+                logger.debug(f"Download error {e}, caused from")
                 if self._config.get("log_level") == "DEBUG":
                     traceback.print_exc()
-        logger.critical(f"Ignore request, retry_time is {self._config.get('retry_times')}")
+                    logger.debug("this error will retry ...")
+        logger.critical(f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}")
 
 
     # async def async_download(self) -> dict:
