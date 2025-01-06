@@ -18,14 +18,21 @@ class Response(ParentResponse):
         return response
 
     def get_set_cookies(self, *key_args):
-        # curl_cffi 中, response 已经包含了最新 set 的 cookie
-        bc = BaseCookie()
-        # bc.load(" ".join(self.headers.get_list('Set-Cookie')))
-        for each in self.headers.get_list("Set-Cookie"):
-            bc.load(each)
+        # python BaseCookie 在解析含有 Partitioned 字段的时候会失败, 且没有报错
+        # bc = BaseCookie()
+        # for each in self.headers.get_list("Set-Cookie"):
+        #     bc.load(each.replace("Partitioned", ""))
+        # result = {}
+        # for key in key_args:
+        #     result[key] = bc.get(key).value
+        # return result
         result = {}
-        for key in key_args:
-            result[key] = bc.get(key).value
+        for cookie in self.headers.get_list("Set-Cookie"):
+            values = cookie.split(";")[0].split("=")
+            key = values[0]
+            value = "".join(values[1:])
+            if key in key_args:
+                result[key] = value
         return result
 
         
