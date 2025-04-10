@@ -10,6 +10,7 @@ def merge_to_dict(keys: Iterable[Hashable], values: Iterable, strict:bool = True
 def dict_to_json(data: Dict, ensure_ascii=False, separators=(',', ':')):
     return json.dumps(data, ensure_ascii=ensure_ascii, separators=separators)
 
+# save data to pd
 def merge_data(data: list | dict, df: pd.DataFrame):
     if isinstance(data, list):
         tmp = pd.DataFrame(data)
