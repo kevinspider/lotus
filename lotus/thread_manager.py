@@ -1,6 +1,6 @@
+import copy
 import concurrent.futures
 from threading import Lock
-import copy
 from typing import Callable
 
 
@@ -16,7 +16,7 @@ class ThreadContext:
     def get(self, key) -> None:
         with self._lock:
             return self._context.get(key)
-    
+
     def get_dict(self):
         with self._lock:
             return dict(self._context)
@@ -46,7 +46,7 @@ class ThreadManager:
         # 等待所有任务完成
         for future in self.futures:
             future.result()
-    
+
     def join_for_results(self):
         self.join()
         return self.get_results()
@@ -66,7 +66,9 @@ class ThreadManager:
 
     def map(self, func_name: str, spiders):
         # 使用线程池的 map 方法
-        return list(self.executor.map(lambda spider: getattr(spider, func_name)(), spiders))
+        return list(
+            self.executor.map(lambda spider: getattr(spider, func_name)(), spiders)
+        )
 
     def __del__(self):
         # 确保在析构函数中关闭线程池

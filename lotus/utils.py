@@ -4,11 +4,13 @@ from jsonpath import jsonpath
 from typing import Iterable, Hashable, Dict
 
 
-def merge_to_dict(keys: Iterable[Hashable], values: Iterable, strict:bool = True):
+def merge_to_dict(keys: Iterable[Hashable], values: Iterable, strict: bool = True):
     return {key: value for key, value in zip(keys, values, strict=strict)}
 
-def dict_to_json(data: Dict, ensure_ascii=False, separators=(',', ':')):
+
+def dict_to_json(data: Dict, ensure_ascii=False, separators=(",", ":")):
     return json.dumps(data, ensure_ascii=ensure_ascii, separators=separators)
+
 
 # save data to pd
 def merge_data(data: list | dict, df: pd.DataFrame):
@@ -20,7 +22,9 @@ def merge_data(data: list | dict, df: pd.DataFrame):
     return result
 
 
-def json_parse(dict_obj:dict, target_keys: list | None = [], list_key_path:str | None = None):
+def json_parse(
+    dict_obj: dict, target_keys: list | None = [], list_key_path: str | None = None
+):
     # 列表页解析
     if list_key_path is not None:
         result = []
@@ -50,4 +54,3 @@ def json_parse(dict_obj:dict, target_keys: list | None = [], list_key_path:str |
             else:
                 print("key not find", key, dict_obj)
         return item
-        

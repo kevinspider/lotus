@@ -2,8 +2,8 @@ import sys
 import traceback
 from loguru import logger
 from curl_cffi import CurlHttpVersion
-from curl_cffi.requests.impersonate import *
-from curl_cffi.requests.session import *
+from curl_cffi.requests.impersonate import DEFAULT_CHROME
+from curl_cffi.requests.session import HttpMethod
 from lotus.request import Request
 from lotus.attr import AttrMixin, Config
 from lotus.response import Response
@@ -51,6 +51,7 @@ requests 参数
 
 logger = logger
 
+
 # 定义一个函数来配置 logger
 def configure_logger(log_file: str = None, log_level: str = "DEBUG"):
     # 添加新的处理器
@@ -59,7 +60,7 @@ def configure_logger(log_file: str = None, log_level: str = "DEBUG"):
         logger.remove()
         logger.add(sink=sys.stdout, level=log_level, enqueue=True)
         logger.add(sink=log_file, level=log_level, enqueue=True)
-        
+
     else:
         # 移除所有现有的处理器
         logger.remove()
@@ -68,25 +69,29 @@ def configure_logger(log_file: str = None, log_level: str = "DEBUG"):
 
 class Spider(AttrMixin):
     _log_configed = False
-    
-    def __init__(self, method: HttpMethod, url: str, config: Optional[Config] = None) -> None:
+
+    def __init__(
+        self, method: HttpMethod, url: str, config: Optional[Config] = None
+    ) -> None:
         # 初始化 config, 获取默认值
         self._config = self.config()
         # 添加 url 和 method
-        self._config['url'] = url
-        self._config['method'] = method
-        
+        self._config["url"] = url
+        self._config["method"] = method
+
         # 加载用户自定义的 config
         if config is not None:
             self.update_config(**config)
-        
+
         # 配置 logger
         if Spider._log_configed is False:
-            configure_logger(self._config.get("log_file"), self._config.get("log_level"))
+            configure_logger(
+                self._config.get("log_file"), self._config.get("log_level")
+            )
             Spider._log_configed = True
 
         super().__init__(self._config)
-    
+
     # config 默认值定义在 Spider 中; Config 类型定义在 AttrMixin 中
     def config(self) -> Config:
         config: Config = {
@@ -95,19 +100,19 @@ class Spider(AttrMixin):
             "max_redirects": 30,
             "proxies": None,
             "verify": False,
-            "referer":  None,
+            "referer": None,
             "accept_encoding": "gzip, deflate, br, zstd",
             "impersonate": DEFAULT_CHROME,
             "default_encoding": "utf-8",
-            "quote":  "",
+            "quote": "",
             "http_version": CurlHttpVersion.V1_1,
-            "debug":  False,
+            "debug": False,
             "stream": False,
             "max_recv_speed": 0,
             # 自定义属性, 非 curl_cffi 的属性, 会在 Request() 实例化的时候, 被 Request 过滤掉, 不会传递给 Request 和 Session
             "retry_times": 5,
             "log_file": None,
-            "log_level": "DEBUG"
+            "log_level": "DEBUG",
         }
         return config
 
@@ -132,17 +137,17 @@ class Spider(AttrMixin):
         self.pre_request()
 
         """构建请求体"""
-        self._config['params'] = self.get_params()
-        self._config['headers'] = self.get_headers()
+        self._config["params"] = self.get_params()
+        self._config["headers"] = self.get_headers()
         # 如果此处传递 json, 直接截断
         json_data = self.get_json()
         # 包含了 json 就肯定不能包含 data, 互斥
         if json_data is not None:
-            self._config['data'] = dict_to_json(json_data).encode("utf-8")
+            self._config["data"] = dict_to_json(json_data).encode("utf-8")
             assert self.get_data() is None
         else:
-            self._config['data'] = self.get_data()
-        self._config['cookies'] = self.get_cookies()
+            self._config["data"] = self.get_data()
+        self._config["cookies"] = self.get_cookies()
         return Request(**self._config)
 
     # 子类按需要重写, 提供了 request 的 hook
@@ -163,8 +168,9 @@ class Spider(AttrMixin):
                 if self._config.get("log_level") == "DEBUG":
                     traceback.print_exc()
                     logger.debug("this error will retry ...")
-        logger.critical(f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}")
-
+        logger.critical(
+            f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}"
+        )
 
     # async def async_download(self) -> dict:
     #     retry_times = self._config.get("retry_times", 3)
@@ -176,7 +182,7 @@ class Spider(AttrMixin):
     #             result['is_ignore'] = self.is_ignore(response)
     #             result['is_retry'] = self.is_retry(response)
     #             result['is_update'] = self.is_update(response)
-    #             result['data'] = self.parse(response)     
+    #             result['data'] = self.parse(response)
     #             return result
     #         except Exception as e:
     #             retry_times -= 1

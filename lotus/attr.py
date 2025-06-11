@@ -1,17 +1,36 @@
-from typing import Callable, Dict, Literal, Optional, Tuple, TypedDict, Union
+from typing import (
+    Callable,
+    Dict,
+    Literal,
+    Optional,
+    Tuple,
+    TypedDict,
+    Union,
+    List,
+    Unpack,
+)
 from curl_cffi import CurlHttpVersion
-from curl_cffi.requests.impersonate import *
-from curl_cffi.requests.session import *
-from loguru import logger
-
+from curl_cffi.requests.impersonate import (
+    BrowserTypeLiteral,
+    ExtraFingerprints,
+    ExtraFpDict,
+)
+from curl_cffi.requests.session import (
+    HttpMethod,
+    BytesIO,
+    HeaderTypes,
+    CookieTypes,
+    ProxySpec,
+    ThreadType,
+    CurlMime,
+)
 
 
 class Config(TypedDict, total=False):
     method: HttpMethod
     url: str
     params: Optional[Union[Dict, List, Tuple]] = None
-    data: Optional[Union[Dict[str, str],
-                         List[Tuple], str, BytesIO, bytes]] = None
+    data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None
     json: Optional[dict] = None
     headers: Optional[HeaderTypes] = None
     cookies: Optional[CookieTypes] = None
@@ -44,14 +63,13 @@ class Config(TypedDict, total=False):
     max_recv_speed: int = 0
     multipart: Optional[CurlMime] = None
     # add by kevin
-    retry_times:int = 3
+    retry_times: int = 3
     log_level: Literal["DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"]
     log_file: Optional[str] = None
 
 
-
 class AttrMixin:
-        
+
     def __init__(self, config: Optional[Config] = None):
         self._params = None
         self._data = None

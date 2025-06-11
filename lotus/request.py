@@ -33,8 +33,9 @@ REQUEST_ATTR = [
     "cert",
     "stream",
     "max_recv_speed",
-    "multipart"
+    "multipart",
 ]
+
 
 class Request:
     def __init__(self, **kwargs) -> None:
@@ -52,8 +53,7 @@ class Request:
             with Session(**self._session_config) as s:
                 return s.request(**self._request_config)
         except Exception as e:
-            raise e 
-        
+            raise e
 
     async def async_download(self):
         try:
