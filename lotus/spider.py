@@ -4,11 +4,12 @@ from loguru import logger
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import DEFAULT_CHROME
 from curl_cffi.requests.session import HttpMethod
+from curl_cffi.requests.exceptions import Timeout, ProxyError, SSLError
 from lotus.request import Request
 from lotus.attr import AttrMixin, Config
 from lotus.response import Response
 from typing import Optional
-from lotus.utils import dict_to_json
+from lotus.data import dict_to_json
 
 """
 requests 参数
@@ -53,7 +54,7 @@ logger = logger
 
 
 # 定义一个函数来配置 logger
-def configure_logger(log_file: str = None, log_level: str = "DEBUG"):
+def configure_logger(log_file: str | None = None, log_level: str = "DEBUG"):
     # 添加新的处理器
     if log_file:
         # 移除所有现有的处理器
@@ -86,7 +87,7 @@ class Spider(AttrMixin):
         # 配置 logger
         if Spider._log_configed is False:
             configure_logger(
-                self._config.get("log_file"), self._config.get("log_level")
+                self._config.get("log_file"), self._config.get("log_level", "DEBUG")
             )
             Spider._log_configed = True
 
@@ -94,6 +95,7 @@ class Spider(AttrMixin):
 
     # config 默认值定义在 Spider 中; Config 类型定义在 AttrMixin 中
     def config(self) -> Config:
+        
         config: Config = {
             "timeout": 30,
             "allow_redirects": True,
@@ -154,7 +156,7 @@ class Spider(AttrMixin):
     def pre_request(self) -> None:
         return None
 
-    def download(self) -> dict | None:
+    def download(self) -> dict | str | None:
         retry_times = self._config.get("retry_times")
         while retry_times:
             try:
@@ -164,10 +166,19 @@ class Spider(AttrMixin):
                 return final_result
             except Exception as e:
                 retry_times -= 1
-                logger.debug(f"Download error {e}, caused from")
-                if self._config.get("log_level") == "DEBUG":
-                    traceback.print_exc()
-                    logger.debug("this error will retry ...")
+                if self._config.get("proxy_error_ignore"):
+                    if isinstance(e, Timeout) or isinstance(e, ProxyError) or isinstance(e, SSLError):
+                        pass
+                    else:
+                        logger.debug(f"Download error {e}, caused from")
+                        if self._config.get("log_level") == "DEBUG":
+                            traceback.print_exc()
+                            logger.debug("this error will retry ...") 
+                else:
+                    logger.debug(f"Download error {e}, caused from")
+                    if self._config.get("log_level") == "DEBUG":
+                        traceback.print_exc()
+                        logger.debug("this error will retry ...")
         logger.critical(
             f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}"
         )

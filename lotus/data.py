@@ -23,7 +23,7 @@ def merge_data(data: list | dict, df: pd.DataFrame):
 
 
 def json_parse(
-    dict_obj: dict, target_keys: list | None = [], list_key_path: str | None = None
+    dict_obj: dict, target_keys: list[str] | None = [], list_key_path: str | None = None
 ):
     # 列表页解析
     if list_key_path is not None:
@@ -33,24 +33,30 @@ def json_parse(
             if element_list[0]:
                 for element in element_list[0]:
                     item = {}
-                    for key in target_keys:
-                        value = jsonpath(element, f"$..{key}")
-                        if value:
-                            value = value[0]
-                            item[key] = value
-                        else:
-                            print("key not find", key, element)
-                    print(item)
-                    result.append(item)
+                    if target_keys:
+                        for key in target_keys:
+                            value = jsonpath(element, f"$..{key}")
+                            if value:
+                                value = value[0]
+                                item[key] = value
+                            else:
+                                print("key not find", key, element)
+                        print(item)
+                        result.append(item)
+                    else:
+                        result.append(element)
             return result
     # 单 dict 解析
     else:
         item = {}
-        for key in target_keys:
-            value = jsonpath(dict_obj, f"$..{key}")
-            if value:
-                value = value[0]
-                item[key] = value
-            else:
-                print("key not find", key, dict_obj)
+        if target_keys:
+            for key in target_keys:
+                value = jsonpath(dict_obj, f"$..{key}")
+                if value:
+                    value = value[0]
+                    item[key] = value
+                else:
+                    print("key not find", key, dict_obj)
+        else:
+            raise KeyError("target_keys is None")
         return item

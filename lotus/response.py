@@ -1,4 +1,4 @@
-from curl_cffi.requests.session import Response as ParentResponse
+from curl_cffi.requests.session import Response as ParentResponse # type: ignore
 
 
 class Response(ParentResponse):
@@ -27,9 +27,12 @@ class Response(ParentResponse):
         # return result
         result = {}
         for cookie in self.headers.get_list("Set-Cookie"):
-            values = cookie.split(";")[0].split("=")
-            key = values[0]
-            value = "".join(values[1:])
-            if key in key_args:
-                result[key] = value
+            if cookie:
+                values = cookie.split(";")[0].split("=")
+                key = values[0]
+                value = "".join(values[1:])
+                if key in key_args:
+                    result[key] = value
+            else:
+                raise TypeError("cookie is None")
         return result

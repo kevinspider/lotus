@@ -17,55 +17,56 @@ from curl_cffi.requests.impersonate import (
 )
 from curl_cffi.requests.session import (
     HttpMethod,
-    BytesIO,
-    HeaderTypes,
-    CookieTypes,
+    BytesIO, # type: ignore
+    HeaderTypes, # type: ignore
+    CookieTypes, # type: ignore
     ProxySpec,
     ThreadType,
-    CurlMime,
+    CurlMime, # type: ignore
 )
 
 
 class Config(TypedDict, total=False):
     method: HttpMethod
     url: str
-    params: Optional[Union[Dict, List, Tuple]] = None
-    data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]] = None
-    json: Optional[dict] = None
-    headers: Optional[HeaderTypes] = None
-    cookies: Optional[CookieTypes] = None
-    files: Optional[Dict] = None
-    auth: Optional[Tuple[str, str]] = None
-    timeout: Union[float, Tuple[float, float]] = 30
-    allow_redirects: bool = True
-    max_redirects: int = 30
-    proxies: Optional[ProxySpec] = None
-    proxy: Optional[str] = None
-    proxy_auth: Optional[Tuple[str, str]] = None
-    verify: Optional[bool] = False
-    referer: Optional[str] = None
-    accept_encoding: Optional[str] = "gzip, deflate, br, zstd"
-    content_callback: Optional[Callable] = None
-    impersonate: Optional[BrowserTypeLiteral] = None
-    ja3: Optional[str] = None
-    akamai: Optional[str] = None
-    extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]] = None
-    thread: Optional[ThreadType] = None
-    default_headers: Optional[bool] = None
-    default_encoding: Union[str, Callable[[bytes], str]] = "utf-8"
-    quote: Union[str, Literal[False]] = ""
-    curl_options: Optional[dict] = None
-    http_version: Optional[CurlHttpVersion] = None
-    debug: bool = False
-    interface: Optional[str] = None
-    cert: Optional[Union[str, Tuple[str, str]]] = None
-    stream: bool = False
-    max_recv_speed: int = 0
-    multipart: Optional[CurlMime] = None
+    params: Optional[Union[Dict, List, Tuple]]
+    data: Optional[Union[Dict[str, str], List[Tuple], str, BytesIO, bytes]]
+    json: Optional[dict]
+    headers: Optional[HeaderTypes]
+    cookies: Optional[CookieTypes]
+    files: Optional[Dict]
+    auth: Optional[Tuple[str, str]]
+    timeout: Union[float, Tuple[float, float]]
+    allow_redirects: bool
+    max_redirects: int
+    proxies: Optional[ProxySpec]
+    proxy_error_ignore: bool
+    proxy: Optional[str]
+    proxy_auth: Optional[Tuple[str, str]]
+    verify: Optional[bool]
+    referer: Optional[str]
+    accept_encoding: Optional[str]
+    content_callback: Optional[Callable]
+    impersonate: Optional[BrowserTypeLiteral]
+    ja3: Optional[str]
+    akamai: Optional[str]
+    extra_fp: Optional[Union[ExtraFingerprints, ExtraFpDict]]
+    thread: Optional[ThreadType]
+    default_headers: Optional[bool]
+    default_encoding: Union[str, Callable[[bytes], str]]
+    quote: Union[str, Literal[False]]
+    curl_options: Optional[dict]
+    http_version: Optional[CurlHttpVersion]
+    debug: bool
+    interface: Optional[str]
+    cert: Optional[Union[str, Tuple[str, str]]]
+    stream: bool
+    max_recv_speed: int
+    multipart: Optional[CurlMime]
     # add by kevin
-    retry_times: int = 3
+    retry_times: int
     log_level: Literal["DEBUG", "INFO", "SUCCESS", "WARNING", "ERROR", "CRITICAL"]
-    log_file: Optional[str] = None
+    log_file: Optional[str]
 
 
 class AttrMixin:
@@ -76,11 +77,11 @@ class AttrMixin:
         self._headers = None
         self._json = None
         self._cookies = None
-        self._config = None
+        self._config = Config()
 
         # 初始化懒加载的属性
         self._params: Optional[dict] = self.params()
-        self._data: Optional[dict] = self.data()
+        self._data: dict | str | bytes | None = self.data()
         self._headers: Optional[dict] = self.headers()
         self._json: Optional[dict] = self.json()
         self._cookies: Optional[dict] = self.cookies()
@@ -90,7 +91,7 @@ class AttrMixin:
 
     # config 属性
 
-    def get_config(self, key: Optional[Config.keys] = None):
+    def get_config(self, key: Optional[Config.keys] = None): # type: ignore
         if key is None:
             return self._config
         else:
@@ -121,7 +122,7 @@ class AttrMixin:
         return self._params
 
     # data 属性
-    def get_data(self) -> dict | None:
+    def get_data(self) -> dict | str | bytes | None:
         if self._data is None:
             self._data = self.data()
         return self._data
@@ -134,7 +135,10 @@ class AttrMixin:
         if self._data is None:
             self._data = value
         else:
-            self._data.update(value)
+            if isinstance(self._data, dict):
+                self._data.update(value)
+            else:
+                raise TypeError("data is not dict")
         return self._data
 
     # headers 属性
@@ -192,7 +196,7 @@ class AttrMixin:
     def params(self) -> dict | None:
         return None
 
-    def data(self) -> dict | None:
+    def data(self) -> dict | str | bytes | None:
         return None
 
     def headers(self) -> dict | None:
@@ -204,5 +208,5 @@ class AttrMixin:
     def cookies(self) -> dict | None:
         return None
 
-    def config(self) -> dict:
+    def config(self) -> Config:
         return {}

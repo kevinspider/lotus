@@ -6,7 +6,7 @@ setup(
     author='kevinSpider',
     author_email="zhangyang.spider@gmail.com",
     description='spider tools', 
-    long_description=open('README.md').read(),  # 从 README.md 中读取长描述
+    long_description=open('README.md', encoding="utf-8").read(),  # 从 README.md 中读取长描述
     long_description_content_type='text/markdown',  # 长描述的内容类型
     url='https://github.com/kevinspider/lotus',  # 项目主页
     packages=find_packages(),  # 自动发现并包含所有包
