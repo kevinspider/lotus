@@ -4,7 +4,7 @@ from loguru import logger
 from curl_cffi import CurlHttpVersion
 from curl_cffi.requests.impersonate import DEFAULT_CHROME
 from curl_cffi.requests.session import HttpMethod
-from curl_cffi.requests.exceptions import Timeout, ProxyError, SSLError
+from curl_cffi.requests.exceptions import Timeout, ProxyError, SSLError, ConnectionError
 from lotus.request import Request
 from lotus.attr import AttrMixin, Config
 from lotus.response import Response
@@ -95,7 +95,7 @@ class Spider(AttrMixin):
 
     # config 默认值定义在 Spider 中; Config 类型定义在 AttrMixin 中
     def config(self) -> Config:
-        
+
         config: Config = {
             "timeout": 30,
             "allow_redirects": True,
@@ -156,7 +156,7 @@ class Spider(AttrMixin):
     def pre_request(self) -> None:
         return None
 
-    def download(self) -> dict | str | None:
+    def download(self) -> dict | list | bytes | str | None:
         retry_times = self._config.get("retry_times")
         while retry_times:
             try:
@@ -167,20 +167,20 @@ class Spider(AttrMixin):
             except Exception as e:
                 retry_times -= 1
                 if self._config.get("proxy_error_ignore"):
-                    if isinstance(e, Timeout) or isinstance(e, ProxyError) or isinstance(e, SSLError):
+                    if isinstance(e, (Timeout, ProxyError, SSLError, ConnectionError)):
                         pass
                     else:
                         logger.debug(f"Download error {e}, caused from")
                         if self._config.get("log_level") == "DEBUG":
                             traceback.print_exc()
-                            logger.debug("this error will retry ...") 
+                            logger.debug("this error will retry ...")
                 else:
                     logger.debug(f"Download error {e}, caused from")
                     if self._config.get("log_level") == "DEBUG":
                         traceback.print_exc()
                         logger.debug("this error will retry ...")
         logger.critical(
-            f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}"
+            f"Ignore request, retry_time is {self._config.get('retry_times')}, url={self._config.get('url')}, {self.__dict__}"
         )
 
     # async def async_download(self) -> dict:
@@ -199,5 +199,5 @@ class Spider(AttrMixin):
     #             retry_times -= 1
 
     # 子类重写 解析页面数据
-    def parse(self, response: Response) -> dict | str | None:
+    def parse(self, response: Response) -> dict | list | bytes | str | None:
         return None
