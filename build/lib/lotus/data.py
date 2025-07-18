@@ -13,14 +13,11 @@ def dict_to_json(data: Dict, ensure_ascii=False, separators=(",", ":")):
 
 
 # save data to pd
-def merge_data(data: list | dict | bytes | str | None, df: pd.DataFrame):
+def merge_data(data: list | dict, df: pd.DataFrame):
     if isinstance(data, list):
         tmp = pd.DataFrame(data)
-    elif isinstance(data, dict):
-        tmp = pd.DataFrame([data])
     else:
-        # bytes str or None 
-        return df
+        tmp = pd.DataFrame([data])
     result = pd.concat([df, tmp], ignore_index=True)
     return result
 
