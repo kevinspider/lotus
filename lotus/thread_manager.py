@@ -2,12 +2,15 @@ import copy
 import concurrent.futures
 from threading import Lock
 from typing import Callable
+from lotus.spider import logger
 from rich.progress import (
     Progress,
     SpinnerColumn,
     BarColumn,
     TaskProgressColumn,
     TimeElapsedColumn,
+    MofNCompleteColumn,
+    TextColumn,
 )
 
 
@@ -37,6 +40,8 @@ class ThreadManager:
         self.data_store = []
         self.lock = Lock()
         self.futures = []
+        self.force_stop = False
+        self.data_length = 0
 
         # 进度条
         self.progress = Progress(
@@ -45,11 +50,21 @@ class ThreadManager:
             BarColumn(),
             TaskProgressColumn(),
             TimeElapsedColumn(),
+            MofNCompleteColumn(),
+            TextColumn(
+                "[bold green] data len: {task.fields[data_length]}", justify="right"
+            ),
         )
-        self.task_id = self.progress.add_task("Start Tasks (data: 0)", total=0)
+        self.task_id = self.progress.add_task(
+            description="Start Tasks",
+            total=0,
+            data_length=self.data_length,
+        )
         self.progress.start()
 
     def add_task(self, func_name: str, spider):
+        if self.force_stop:
+            return
         # 提交任务实例并提交任务
         func = getattr(spider, func_name)
         future = self.executor.submit(self.execute_task, func)
@@ -57,7 +72,7 @@ class ThreadManager:
 
         # 更新进度条
         with self.lock:
-            total  = self.progress.tasks[0].total if self.progress.tasks[0].total else 0
+            total = self.progress.tasks[0].total if self.progress.tasks[0].total else 0
             self.progress.update(self.task_id, total=total + 1)
 
     def execute_task(self, func: Callable):
@@ -67,17 +82,35 @@ class ThreadManager:
 
         # 更新进度条
         with self.lock:
-            self.progress.update(self.task_id, advance=1, description=f"data: {len(self.data_store)}")
+            self.progress.update(self.task_id, advance=1, data_length=self.data_length)
+
+    def cancel_all(self):
+        # 捕获ctrl +c 中断
+        for f in self.futures:
+            cancelled = f.cancel()
 
     def join(self):
-        # 等待所有任务完成
-        for future in self.futures:
-            future.result()
-        self.progress.stop()
+        try:
+            # 等待所有任务完成
+            for future in self.futures:
+                future.result()
+            self.progress.stop()
+        except KeyboardInterrupt:
+            logger.critical("Ctrl + C stop task!!!")
+            self.cancel_all()
+            self.executor.shutdown(wait=False)
+            self.force_stop = True
+            self.progress.stop()
+            exit(0)
+        finally:
+            self.executor.shutdown(wait=True)
 
     def join_for_results(self):
-        self.join()
-        return self.get_results()
+        try:
+            self.join()
+            return self.get_results()
+        except KeyboardInterrupt:
+            return []
 
     def get_results(self):
         # 获取所有存储的数据并清空数据存储
@@ -88,9 +121,19 @@ class ThreadManager:
 
     def save_result(self, value):
         # 存储数据，使用锁以确保线程安全
-        if value is not None:  # 仅在结果不为 None 时存储
+        if value is not None and isinstance(
+            value, (list, dict)
+        ):  # 仅在结果不为 None 时存储
             with self.lock:
                 self.data_store.append(value)
+                if isinstance(value, dict):
+                    self.data_length += 1
+                if isinstance(value, list):
+                    self.data_length += len(value)
+        else:
+            logger.critical(
+                "save_result download result is not List or Dict, Ignore!!!"
+            )
 
     def map(self, func_name: str, spiders):
         # 使用线程池的 map 方法
