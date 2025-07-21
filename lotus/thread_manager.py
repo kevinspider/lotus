@@ -2,6 +2,13 @@ import copy
 import concurrent.futures
 from threading import Lock
 from typing import Callable
+from rich.progress import (
+    Progress,
+    SpinnerColumn,
+    BarColumn,
+    TaskProgressColumn,
+    TimeElapsedColumn,
+)
 
 
 class ThreadContext:
@@ -31,21 +38,42 @@ class ThreadManager:
         self.lock = Lock()
         self.futures = []
 
+        # 进度条
+        self.progress = Progress(
+            SpinnerColumn(),
+            "[bold blue]进度:",
+            BarColumn(),
+            TaskProgressColumn(),
+            TimeElapsedColumn(),
+        )
+        self.task_id = self.progress.add_task("Start Tasks (data: 0)", total=0)
+        self.progress.start()
+
     def add_task(self, func_name: str, spider):
         # 提交任务实例并提交任务
         func = getattr(spider, func_name)
         future = self.executor.submit(self.execute_task, func)
         self.futures.append(future)
 
+        # 更新进度条
+        with self.lock:
+            total  = self.progress.tasks[0].total if self.progress.tasks[0].total else 0
+            self.progress.update(self.task_id, total=total + 1)
+
     def execute_task(self, func: Callable):
         # 执行任务并存储结果
         result = func()
         self.save_result(result)
 
+        # 更新进度条
+        with self.lock:
+            self.progress.update(self.task_id, advance=1, description=f"data: {len(self.data_store)}")
+
     def join(self):
         # 等待所有任务完成
         for future in self.futures:
             future.result()
+        self.progress.stop()
 
     def join_for_results(self):
         self.join()
