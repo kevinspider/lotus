@@ -11,6 +11,7 @@ from lotus.response import Response
 from typing import Optional
 from lotus.data import dict_to_json
 
+
 """
 requests 参数
     method: HttpMethod,
@@ -71,6 +72,13 @@ def configure_logger(log_file: str | None = None, log_level: str = "DEBUG"):
 class Spider(AttrMixin):
     _log_configed = False
 
+    @classmethod
+    def _init_logger(cls, config: Config):
+        if cls._log_configed:
+            return
+        configure_logger(config.get("log_file"), config.get("log_level", "DEBUG"))
+        cls._log_configed = True
+
     def __init__(
         self, method: HttpMethod, url: str, config: Optional[Config] = None
     ) -> None:
@@ -84,13 +92,10 @@ class Spider(AttrMixin):
         if config is not None:
             self.update_config(**config)
 
-        # 配置 logger
-        if Spider._log_configed is False:
-            configure_logger(
-                self._config.get("log_file"), self._config.get("log_level", "DEBUG")
-            )
-            Spider._log_configed = True
+        # log 日志
+        self._init_logger(self._config)
 
+        # 初始化
         super().__init__(self._config)
 
     # config 默认值定义在 Spider 中; Config 类型定义在 AttrMixin 中

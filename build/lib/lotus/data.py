@@ -19,7 +19,7 @@ def merge_data(data: list | dict | bytes | str | None, df: pd.DataFrame):
     elif isinstance(data, dict):
         tmp = pd.DataFrame([data])
     else:
-        # bytes str or None 
+        # bytes or str or None
         return df
     result = pd.concat([df, tmp], ignore_index=True)
     return result
@@ -63,3 +63,7 @@ def json_parse(
         else:
             raise KeyError("target_keys is None")
         return item
+
+
+def df_to_dict(df: pd.DataFrame):
+    return df.to_dict("records")

@@ -1,4 +1,6 @@
-from curl_cffi.requests.session import Response as ParentResponse # type: ignore
+from typing import Mapping
+from parsel import Selector
+from curl_cffi.requests.session import Response as ParentResponse
 
 
 class Response(ParentResponse):
@@ -36,3 +38,23 @@ class Response(ParentResponse):
             else:
                 raise TypeError("cookie is None")
         return result
+
+    def xpath_parse(
+        self,
+        text: str | None = None,
+        type: str | None = None,
+        body: bytes = b"",
+        encoding: str = "utf-8",
+        namespaces: Mapping[str, str] | None = None,
+        base_url: str | None = None,
+        _expr: str | None = None,
+    ) -> Selector:
+        return Selector(
+            text=text if text else self.text,
+            type=type,
+            body=body,
+            encoding=encoding,
+            namespaces=namespaces,
+            base_url=base_url,
+            _expr=_expr,
+        )

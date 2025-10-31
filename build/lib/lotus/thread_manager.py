@@ -121,19 +121,21 @@ class ThreadManager:
 
     def save_result(self, value):
         # 存储数据，使用锁以确保线程安全
-        if value is not None and isinstance(
-            value, (list, dict)
-        ):  # 仅在结果不为 None 时存储
+        if value is None:
+            logger.critical("save_result download result is None, Ignore!!!")
+            return None
+        elif isinstance(value, (list, dict, str, bytes)):  # 仅在结果不为 None 时存储
             with self.lock:
                 self.data_store.append(value)
-                if isinstance(value, dict):
+                if isinstance(value, (str, bytes, dict)):
                     self.data_length += 1
                 if isinstance(value, list):
                     self.data_length += len(value)
         else:
             logger.critical(
-                "save_result download result is not List or Dict, Ignore!!!"
+                "save_result download result is not in (list, dict, str, bytes), Ignore!!!"
             )
+            return None
 
     def map(self, func_name: str, spiders):
         # 使用线程池的 map 方法

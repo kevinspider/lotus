@@ -13,6 +13,7 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: curl_cffi>=0.7.4
 Requires-Dist: loguru>=0.6.0
+Requires-Dist: parsel
 Dynamic: author
 Dynamic: author-email
 Dynamic: classifier
